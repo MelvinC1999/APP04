@@ -7,7 +7,7 @@ namespace AbstracFactory_RedSocial_DAO_DTO_Docker.DataAccessObject
     {
         public void FeachtDataFacebook()
         {
-            var accessToken = "EAAXDQwSka2QBO5UFEREx1e4VqZBfECZBRyz3U4LWAzvESlSSK2p4GR9Lplbm4jA6nV2lCGQsZBLjJpZAERbAjumojqQo74nVU26xL2ZCiAKaewOIr2yZBfILrmRqHcCrB3YTB5YPT16x57NZAiZAQInNlxABRh244v3cSOIPy2qN5qHqw3DnuGz2zyfIN5wiN6IZAeV86jsC4ZBsde8MDKnzGF48UnUn0i0cWDZAQ9ZA4sCjLZA2lMwnrlfleu0p3H8WEKkUtPuEwpgZDZD"; // Reemplaza esto con tu token de acceso real
+            var accessToken = ""; // Reemplaza esto con tu token de acceso real
             string IdPage = "61449504559";
             var facebookApiService = new FacebookApiService();
             var userName = facebookApiService.GetFacebookPosts(accessToken);
