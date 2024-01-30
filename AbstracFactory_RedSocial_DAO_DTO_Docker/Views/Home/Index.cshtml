@@ -1,31 +1,38 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-}
-@{
     var datosYouTube = ViewData["DatosYouTube"] as List<string>;
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome to my WebSite</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
 @if (datosYouTube != null && datosYouTube.Count >= 8)
 {
-    <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;">
+    <div style="margin-bottom: 20px;">
         <h2>@datosYouTube[0]</h2>
         <p>@datosYouTube[1]</p>
         <p>Número de videos: @datosYouTube[2]</p>
         <p>Número de suscriptores: @datosYouTube[3]</p>
     </div>
 
-    @for (var i = 4; i + 3 < datosYouTube.Count; i += 4)
+    @for (var i = 4; i + 5 < datosYouTube.Count; i += 6)
     {
-        <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;">
+        <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 20px;">
             <h3>@datosYouTube[i]</h3>
             <p>Número de likes: @datosYouTube[i + 1]</p>
             <p>Número de comentarios: @datosYouTube[i + 2]</p>
-            <iframe width="560" height="315" src="@datosYouTube[i + 3].Replace("watch?v=", "embed/")" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>Comentarios:</p>
+            <ul>
+                @for (var j = i + 3; j < i + 6 && j < datosYouTube.Count; j++)
+                {
+                    <li>@datosYouTube[j]</li>
+                }
+            </ul>
+            <div class="video-container">
+                <iframe width="560" height="315" src="@datosYouTube[i + 5].Replace("watch?v=", "embed/")" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
     }
 }
